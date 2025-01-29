@@ -4,7 +4,9 @@
     let new_project_name: string = ""
 
     function create_project() {
-        projects.set([...$projects, {id: $projects[$projects.length-1].id + 1, name: new_project_name, lines: []}])
+        const len = $projects.length
+        const new_id = len === 0 ? 1 : $projects[len-1].id + 1
+        projects.set([...$projects, {id: new_id, name: new_project_name, lines: []}])
         new_project_name = ""
     }
 
